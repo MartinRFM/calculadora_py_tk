@@ -35,8 +35,10 @@ class Calc():
         self.display(self.current)
 
     def display(self, value):
+        txtDisplay.config(state=tkinter.NORMAL)
         txtDisplay.delete(0, tkinter.END)
         txtDisplay.insert(0, value)
+        txtDisplay.config(state='readonly')
 
     def clear_entry(self):
         self.result = False
@@ -47,6 +49,11 @@ class Calc():
     def all_clear_entry(self):
         self.clear_entry()
         self.total = 0
+
+    def clear_last_entry(self):
+        current_text = txtDisplay.get()
+        new_text = current_text[:-1]
+        self.display(new_text)
 
     def operation(self, op):
         self.current = float(self.current)
@@ -136,7 +143,7 @@ class Calc():
 
 added_value = Calc()
 
-txtDisplay = tkinter.Entry(calc, font=('arial', 20, 'bold'), bg='white', bd=30, width=28, justify=tkinter.RIGHT)
+txtDisplay = tkinter.Entry(calc, font=('arial', 20, 'bold'), bg='white', bd=30, width=28, justify=tkinter.RIGHT, state='readonly')
 txtDisplay.grid(row=0, column=0, columnspan=4, pady=1)
 txtDisplay.insert(0, "0")
 
@@ -155,6 +162,9 @@ btnClear = tkinter.Button(calc, text=chr(67), width=6, height=2, font=('arial', 
 
 btnAllClear = tkinter.Button(calc, text=chr(67) + chr(69), width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
                     command=added_value.all_clear_entry).grid(row=1, column=1, pady=1)
+
+btnDel = tkinter.Button(calc, text="DEL", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+                command=added_value.clear_last_entry).grid(row=1, column=2, pady=1)
 
 btnAdd = tkinter.Button(calc, text="+", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
                 command=lambda: added_value.operation("add")).grid(row=1, column=3, pady=1)
