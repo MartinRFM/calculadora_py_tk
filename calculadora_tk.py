@@ -4,7 +4,7 @@ import math
 
 root = tkinter.Tk()
 root.title("Calculadora Científica")
-root.configure(background='white')
+root.configure(background='grey72')
 root.resizable(width=False, height=False)
 root.geometry("480x660+450+90")
 
@@ -161,7 +161,7 @@ class Calc():
 
 added_value = Calc()
 
-txtDisplay = tkinter.Entry(calc, font=('arial', 20, 'bold'), bg='white', bd=30, width=28, justify=tkinter.RIGHT, state='readonly')
+txtDisplay = tkinter.Entry(calc, font=('arial', 20, 'bold'), bg='snow', bd=30, width=28, justify=tkinter.RIGHT, state='readonly')
 txtDisplay.grid(row=0, column=0, columnspan=4, pady=1)
 txtDisplay.insert(0, "0")
 
@@ -170,51 +170,51 @@ i = 0
 btn = []
 for j in range(2, 5):
     for k in range(3):
-        btn.append(tkinter.Button(calc, width=6, height=2, font=('arial', 20, 'bold'), bd=4, text=numberpad[i]))
+        btn.append(tkinter.Button(calc, width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg = "thistle2", text=numberpad[i]))
         btn[i].grid(row=j, column=k, pady=1)
         btn[i]["command"] = lambda x=numberpad[i]: added_value.numberEnter(x)
         i += 1
 
-btnClear = tkinter.Button(calc, text= chr(67), width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnClear = tkinter.Button(calc, text= chr(67), width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                     command=added_value.clear_entry).grid(row=1, column=0, pady=1)
 
-btnAllClear = tkinter.Button(calc, text= chr(67) + chr(69), width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnAllClear = tkinter.Button(calc, text= chr(67) + chr(69), width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                     command=added_value.all_clear_entry).grid(row=1, column=1, pady=1)
 
-btnDel = tkinter.Button(calc, text= chr(68) + chr(69) + chr(76) , width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnDel = tkinter.Button(calc, text= chr(68) + chr(69) + chr(76) , width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                 command=added_value.clear_last_entry).grid(row=1, column=2, pady=1)
 
-btnAdd = tkinter.Button(calc, text="+", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnAdd = tkinter.Button(calc, text="+", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                 command=lambda: added_value.operation("add")).grid(row=2, column=3, pady=1)
 
-btnSub = tkinter.Button(calc, text="-", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnSub = tkinter.Button(calc, text="-", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                 command=lambda: added_value.operation("sub")).grid(row=3, column=3, pady=1)
 
-btnMult = tkinter.Button(calc, text="*", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnMult = tkinter.Button(calc, text="*", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                 command=lambda: added_value.operation("multi")).grid(row=4, column=3, pady=1)
 
-btnDiv = tkinter.Button(calc, text=chr(247), width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnDiv = tkinter.Button(calc, text=chr(247), width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                 command=lambda: added_value.operation("divide")).grid(row=5, column=3, pady=1)
 
-btnZero = tkinter.Button(calc, text="0", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnZero = tkinter.Button(calc, text="0", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                 command=lambda: added_value.numberEnter(0)).grid(row=5, column=0, pady=1)
 
-btnDot = tkinter.Button(calc, text=".", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnDot = tkinter.Button(calc, text=".", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                 command=lambda: added_value.numberEnter(".")).grid(row=5, column=1, pady=1)
 
-btnEquals = tkinter.Button(calc, text="=", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnEquals = tkinter.Button(calc, text="=", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                     command=added_value.sum_of_total).grid(row=6, column=3, pady=1)
 
-btnPi = tkinter.Button(calc, text="π", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnPi = tkinter.Button(calc, text="π", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                     command=added_value.pi).grid(row=5, column=2, pady=1)
 
-btnSqrt = tkinter.Button(calc, text="√", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnSqrt = tkinter.Button(calc, text="√", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                     command=added_value.squared).grid(row=6, column=0, pady=1)
 
-btnPower = tkinter.Button(calc, text="x²", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnPower = tkinter.Button(calc, text="x²", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                     command=added_value.power).grid(row=6, column=1, pady=1)
 
-btnPotencia = tkinter.Button(calc, text="^", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='powder blue',
+btnPotencia = tkinter.Button(calc, text="^", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg='MediumOrchid1',
                     command=added_value.potencia).grid(row=6, column=2, pady=1)
 
 
